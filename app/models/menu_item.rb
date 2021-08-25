@@ -1,2 +1,3 @@
 class MenuItem < ApplicationRecord
-end 
+  belongs_to :restaurant
+end
