@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/restaurants/:id', to: 'restaurants#show'
   get '/menu_items/:id', to: 'menu_items#show'
   get '/drinks', to: 'drinks#index'
+  get '/bars', to: 'bars#index'
 end
