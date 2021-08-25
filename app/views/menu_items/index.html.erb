@@ -1,5 +1,11 @@
 <h1>Menu Items</h1>
 
 <% @menu_items.each do |item| %>
-  <p><%=item.name %></p>
+  <p>
+    <h3><a href="/menu_items/<%= item.id %>"><%= item.name %></a></h3>
+    <ul>
+    <li><%="Vegetarian?: #{item.vegetarian}"%></li>
+    <li><%="Calories: #{item.calories}"%></li>
+    </ul>
+  </p>
 <% end %>
