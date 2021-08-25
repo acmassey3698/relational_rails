@@ -1,0 +1,7 @@
+<h1>Drinks</h1>
+
+<% @drinks.each do |drink| %>
+  <h3><%=drink.name %></h3>
+  <p>Contains Alcohol: <%=drink.contains_alcohol %></p>
+  <p>Drink Rating: <%=drink.drink_rating %></p>
+<% end %>
