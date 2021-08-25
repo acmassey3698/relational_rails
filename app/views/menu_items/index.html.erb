@@ -2,7 +2,7 @@
 
 <% @menu_items.each do |item| %>
   <p>
-    <h3><%=item.name%></h3>
+    <h3><a href="/menu_items/<%= item.id %>"><%= item.name %></a></h3>
     <ul>
     <li><%="Vegetarian?: #{item.vegetarian}"%></li>
     <li><%="Calories: #{item.calories}"%></li>
