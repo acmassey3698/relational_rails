@@ -1,8 +1,12 @@
+<a href="/menu_items">Menu Items Index</a>
+<br>
 <a href="/restaurants">Restaurant Index</a>
 
 <h1><%= @restaurant.name %></h1>
+<h6><%= link_to "Restaurant Menu", "/restaurants/#{@restaurant.id}/menu_items" %></h6>
 
 <ul>
+  <li><%= "Number of Menu Items: #{@restaurant.menu_items.length}" %></li>
   <li><%= "Yelp Rating: #{@restaurant.yelp_rating}" %></li>
   <li><%= "Delivery?: #{@restaurant.delivery}" %></li>
   <li><%= "ID: #{@restaurant.id}" %></li>
