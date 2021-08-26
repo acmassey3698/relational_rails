@@ -1,5 +1,10 @@
-<h1>Restaurants</h1>
+<a href="/restaurants">Restaurants Index</a>
+<br>
+<a href="/menu_items">Menu Items Index</a>
 
+<h1>Restaurants</h1>
+<ul>
 <% @restaurants.each do |restaurant| %>
-  <h4><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a></h4>
+  <li><h4><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a><%="Created at: #{restaurant.created_at}"%></h4></li>
 <% end %>
+</ul>
