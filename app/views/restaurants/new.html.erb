@@ -3,7 +3,10 @@
   <%= form.text_field :name %><br>
   <%= form.label :yelp_rating%>
   <%= form.number_field :yelp_rating %><br>
-  <%= form.label :delivery, 'Restaurant delivers?:' %>
-  <%= form.check_box :delivery, {}, true, false %><br>
-  <%= form.submit %>
+  <%= form.label :delivery, 'Restaurant delivers?:' %><br>
+  <%= form.label :true %>
+  <%= form.radio_button :delivery, "true" %><br>
+  <%= form.label :false %>
+  <%= form.radio_button :delivery, "false" %><br>
+  <%= form.submit 'create restaurant'%>
 <% end %>
