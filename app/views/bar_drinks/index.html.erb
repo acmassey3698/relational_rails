@@ -1,0 +1,4 @@
+<% @drinks.each do |drink| %>
+  <%= link_to drink.name, "/drinks/#{drink.id}" %>
+<% end %>
+<p>Average Drink Rating for <%= @bar.name %>: </p>
