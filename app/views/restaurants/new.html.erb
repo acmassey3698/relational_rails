@@ -1,0 +1,28 @@
+<!-- <form action="/restaurants" method="post">
+  <input type="hidden" name="authenticity_token" value=" form_authenticity_token %>">
+  <ul>
+  <li>Enter New Restaurant Name</li>
+  <input type="text" name="restaurant[name]"/><br/>
+
+  <li>The New Restaurant Delivers?</li>
+  <input type="radio" id="true" name="restaurant[delivery]" value="false">
+  <label for="true">TRUE</label><br/>
+  <input type="radio" id="false" name="restaurant[delivery]" value="false">
+  <label for="false">FALSE</label><br/>
+
+  <li>Enter Restaurant Yelp Rating (Between 0 and 5) :</li>
+  <input type="number" name="restaurant[yelp_rating]" min="0" max="5"><br/>
+
+  <input type="submit"/>
+
+</form> -->
+
+<%= form_with url: "/restaurants", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+  <%= form.label :yelp_rating%>
+  <%= form.number_field :yelp_rating %><br>
+  <%= form.label :delivery, 'Restaurant delivers?:' %>
+  <%= form.check_box :delivery, {}, true, false %><br>
+  <%= form.submit %>
+<% end %>
