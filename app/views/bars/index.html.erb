@@ -1,7 +1,8 @@
-<h1>Bars</h1>
-
-<% @bars.each do |bar| %>
-  <h3><%=bar.name %></h3>
-  <p>Has Food: <%=bar.has_food %></p>
-  <p>Bar Tabs: <%=bar.tabs %></p>
+<h1 >Bars</h1>
+<% @bars.each_with_index do |bar, index| %>
+  <div id="bar-<%=index%>">
+    <h3><%=bar.name %></h3>
+    <p>Has Food: <%=bar.has_food %></p>
+    <p>Bar Tabs: <%=bar.tabs %></p>
+  </div>
 <% end %>

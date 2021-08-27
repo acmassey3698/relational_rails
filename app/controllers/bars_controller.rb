@@ -1,6 +1,6 @@
 class BarsController < ApplicationController
   def index
-    @bars= Bar.all
+    @bars= Bar.order(created_at: :desc)
   end
 
   def show
