@@ -5,7 +5,7 @@
 <h1>Restaurants</h1>
 <ul>
 <% @restaurants.each do |restaurant| %>
-  <li><h4><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a><%="Created at: #{restaurant.created_at}"%></h4></li>
+  <li><h4><%= link_to "#{restaurant.name}", "restaurants/#{restaurant.id}"%><%= restaurant.created_at%></h4></li>
 <% end %>
 </ul>
 
