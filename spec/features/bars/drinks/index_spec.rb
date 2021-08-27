@@ -14,6 +14,10 @@ RSpec.describe 'Bars drinks index' do
 
     expect(page).to have_content(@rum.name)
     expect(page).to have_content(@water.name)
+    expect(page).to have_content(@water.contains_alcohol)
+    expect(page).to have_content(@water.drink_rating)
+    expect(page).to have_content(@rum.contains_alcohol)
+    expect(page).to have_content(@rum.drink_rating)
   end
 
   it 'links to each drinks show page' do
@@ -25,9 +29,5 @@ RSpec.describe 'Bars drinks index' do
 
   end
 
-  it 'shows the average drink rating for the bar' do
-    visit "/bars/#{@pioneer.id}/drinks"
-
-    expect(page).to have_content("Average Drink Rating for Pioneer: 4.5")
-  end
+  
 end
