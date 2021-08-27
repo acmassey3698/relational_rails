@@ -3,15 +3,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    params_hash = {
-      name: params[:name],
-      yelp_rating: params[:yelp_rating],
-      delivery: params[:delivery]
-      }
-
-    restaurant = Restaurant.new(params_hash)
-
-    restaurant.save
+    restaurant = Restaurant.create(restaurant_params)
 
     redirect_to "/restaurants"
   end
@@ -28,5 +20,9 @@ class RestaurantsController < ApplicationController
 
   def restaurant_menu_items
     @restaurant = Restaurant.find(params[:id])
+  end
+
+  def restaurant_params
+    params.permit(:name, :yelp_rating, :delivery)
   end
 end
