@@ -20,8 +20,8 @@ RSpec.describe 'Bar Show Page' do
     gin = bar.drinks.create!(name: 'Gin', contains_alcohol: true, drink_rating: 2)
 
     visit "/bars/#{bar.id}"
-    save_and_open_page
+    
     expect(page).to have_content(bar.drink_count)
-    expect(page).to have_no_content(bar_2.drink_count)
+    expect(page).to have_no_content("Drink Count: #{bar_2.drink_count}")
   end
 end
