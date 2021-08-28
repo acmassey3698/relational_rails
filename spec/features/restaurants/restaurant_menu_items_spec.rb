@@ -48,4 +48,18 @@ RSpec.describe 'Restaurant menu items index' do
     expect(page).to have_content(item_1.vegetarian)
     expect(page).to have_content(item_2.vegetarian)
   end
+
+  it "displays the nav links at the top of the page" do
+    restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
+
+    item_1 = MenuItem.create!(name: "Big Mac", vegetarian: false, calories: 1000, restaurant_id: restaurant.id)
+    item_2 = MenuItem.create!(name: "Chicken Sandwich", vegetarian: false, calories: 400, restaurant_id: restaurant.id)
+
+    visit "/restaurants/#{restaurant.id}/menu_items"
+    
+    expect(page).to have_link("Restaurants Index")
+    expect(page).to have_link("Bars Index")
+    expect(page).to have_link("Menu Items Index")
+    expect(page).to have_link("Drinks Index")
+  end
 end
