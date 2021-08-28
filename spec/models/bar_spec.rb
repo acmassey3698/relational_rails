@@ -4,7 +4,7 @@ RSpec.describe Bar do
   it {should have_many :drinks}
 
   describe 'instance methods' do
-    describe '#average_song_length' do
+    describe '#drink_count' do
       before :each do
         @pioneer = Bar.create!(name: 'Pioneer')
         @rum = @pioneer.drinks.create!(name: 'Rum and Coke', contains_alcohol: true, drink_rating: 5)
