@@ -26,8 +26,14 @@ RSpec.describe 'Bars drinks index' do
     click_on @rum.name
 
     expect(current_path).to eq("/drinks/#{@rum.id}")
-
   end
 
-  
+  it 'Has the nav links at the top of the page' do
+    visit "/bars/#{@pioneer.id}/drinks"
+
+    expect(page).to have_link("Restaurants Index")
+    expect(page).to have_link("Bars Index")
+    expect(page).to have_link("Menu Items Index")
+    expect(page).to have_link("Drinks Index")
+  end
 end

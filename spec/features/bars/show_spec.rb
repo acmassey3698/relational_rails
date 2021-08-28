@@ -20,8 +20,19 @@ RSpec.describe 'Bar Show Page' do
     gin = bar.drinks.create!(name: 'Gin', contains_alcohol: true, drink_rating: 2)
 
     visit "/bars/#{bar.id}"
-    
+
     expect(page).to have_content(bar.drink_count)
     expect(page).to have_no_content("Drink Count: #{bar_2.drink_count}")
+  end
+
+  it "has the nav links at the top of the page" do
+    bar = Bar.create!(name: 'bar', has_food: false, tabs: 4)
+
+    visit "/bars/#{bar.id}"
+    
+    expect(page).to have_link("Restaurants Index")
+    expect(page).to have_link("Bars Index")
+    expect(page).to have_link("Menu Items Index")
+    expect(page).to have_link("Drinks Index")
   end
 end
