@@ -17,6 +17,7 @@ RSpec.describe 'Bars Index' do
     end
   end
 
+
   it "has the nav links at the top of the page" do
     visit "/bars"
 
