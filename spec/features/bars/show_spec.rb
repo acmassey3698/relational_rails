@@ -49,5 +49,6 @@ RSpec.describe 'Bar Show Page' do
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
 
+    end
   end
 end
