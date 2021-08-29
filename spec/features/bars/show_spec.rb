@@ -38,6 +38,7 @@ RSpec.describe 'Bar Show Page' do
     click_on "Drink Menu"
 
     expect(current_path).to eq("/bars/#{bar.id}/drinks")
+  end
 
   it "has the nav links at the top of the page" do
     bar = Bar.create!(name: 'bar', has_food: false, tabs: 4)
@@ -49,6 +50,5 @@ RSpec.describe 'Bar Show Page' do
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
 
-    end
   end
 end
