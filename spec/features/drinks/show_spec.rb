@@ -16,4 +16,16 @@ RSpec.describe 'the drinks show page' do
     expect(page).to_not have_content(drink_2.contains_alcohol)
     expect(page).to_not have_content(drink_2.drink_rating)
   end
+
+  it "displays nav links at the top of the page" do
+    bar = Bar.create(name: 'pioneer')
+    drink = bar.drinks.create!(name: "Rum and Coke", contains_alcohol: true, drink_rating: 5 )
+
+    visit "/drinks/#{drink.id}"
+
+    expect(page).to have_link("Restaurants Index")
+    expect(page).to have_link("Bars Index")
+    expect(page).to have_link("Menu Items Index")
+    expect(page).to have_link("Drinks Index")
+  end
 end

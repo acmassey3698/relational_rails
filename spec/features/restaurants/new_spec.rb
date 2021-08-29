@@ -35,4 +35,14 @@ RSpec.describe 'Restaurant creation' do
     expect(new_restaurant_yelp_rating).to eq(5)
     expect(new_restaurant_delivery).to eq(false)
   end
+
+  it "displays the nav links at the top of the page" do
+
+    visit '/restaurants/new'
+
+    expect(page).to have_link("Restaurants Index")
+    expect(page).to have_link("Bars Index")
+    expect(page).to have_link("Menu Items Index")
+    expect(page).to have_link("Drinks Index")
+  end
 end
