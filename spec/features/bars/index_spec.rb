@@ -17,4 +17,5 @@ RSpec.describe 'Bars Index' do
     end
 
   end
+
 end
