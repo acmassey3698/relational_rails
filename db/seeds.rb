@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Bar.destroy_all
 Drink.destroy_all
-Restaurant.destroy_all
+Bar.destroy_all
+
 MenuItem.destroy_all
+Restaurant.destroy_all
 
 @pioneer = Bar.create!(name: 'Pioneer', has_food: true, tabs: 2)
 @crimson_and_gold = Bar.create!(name: 'Crimson and Gold', has_food: true, tabs: 1)
