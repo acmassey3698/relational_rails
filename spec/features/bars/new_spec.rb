@@ -11,8 +11,9 @@ RSpec.describe 'New Bar' do
         expect(current_path).to eq('/bars/new')
 
         fill_in 'Name', with: 'Ted'
-        click_on 'Create Bar'
-      
+        click_button 'Create Bar'
+
+        new_bar_id = Bar.last.id
         expect(current_path).to eq("/bars")
         expect(page).to have_content('Ted')
       end
