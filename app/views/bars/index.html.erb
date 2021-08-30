@@ -1,8 +1,8 @@
 <h1 >Bars</h1>
+<ul>
 <% @bars.each_with_index do |bar, index| %>
   <div id="bar-<%=index%>">
-    <h3><%=bar.name %></h3>
-    <p>Has Food: <%=bar.has_food %></p>
-    <p>Bar Tabs: <%=bar.tabs %></p>
+    <li><h4><%= link_to "#{bar.name}", "/bars/#{bar.id}" %> Created At: <%= bar.created_at %></h4></li>
   </div>
 <% end %>
+</ul>
