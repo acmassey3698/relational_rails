@@ -4,7 +4,7 @@
   <%= form.text_field :name %><br>
 
   <%= form.label :yelp_rating%>
-  <%= form.number_field :yelp_rating %><br>
+  <%= form.number_field :yelp_rating, in: 1..5 %><br>
 
   <%= form.label :delivery, 'Restaurant delivers?:' %><br>
   <%= form.label :true %>
