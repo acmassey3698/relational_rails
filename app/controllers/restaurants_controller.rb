@@ -8,7 +8,15 @@ class RestaurantsController < ApplicationController
     redirect_to "/restaurants"
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
 
+  def update
+    restaurant = Restaurant.find(params[:id])
+    restaurant.update(restaurant_params)
+    redirect_to "/restaurants/#{restaurant.id}"
+  end
 
   def index
     @restaurants = Restaurant.all.order(created_at: :desc)
@@ -22,6 +30,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
+private
   def restaurant_params
     params.permit(:name, :yelp_rating, :delivery)
   end
