@@ -1,0 +1,11 @@
+<h1><%= @restaurant.name %>
+
+<% @restaurant.menu_items.each do |item| %>
+  <h3><%=item.name%></h3>
+  <ul>
+    <li><%="Calories: #{item.calories}"%></li>
+    <li><%="Vegetarian?: #{item.vegetarian}"%></li>
+  </ul>
+<%end%>
+
+<%= link_to 'Add Menu Item', "/restaurants/#{@restaurant.id}/menu_items/new"%>
