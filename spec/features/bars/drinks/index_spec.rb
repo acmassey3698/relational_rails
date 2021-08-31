@@ -5,6 +5,7 @@ RSpec.describe 'Bars drinks index' do
     @pioneer = Bar.create!(name: 'Pioneer')
     @rum = @pioneer.drinks.create!(name: 'Rum and Coke', contains_alcohol: true, drink_rating: 5)
     @water = @pioneer.drinks.create!(name: 'Water', contains_alcohol: false, drink_rating: 4)
+    @ale = @pioneer.drinks.create!(name: 'Ale', contains_alcohol: false, drink_rating: 4)
   end
 
   it 'shows all of the names of the drinks for the bar' do
@@ -36,7 +37,30 @@ RSpec.describe 'Bars drinks index' do
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
   end
+  # [ ] done
+  #
+  # User Story 16, Sort Parent's Children in Alphabetical Order by name (x2)
+  #
+  # As a visitor
+  # When I visit the Parent's children Index Page
+  # Then I see a link to sort children in alphabetical order
+  # When I click on the link
+  # I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 
+  it "has a link to alphabetize the bar drinks" do
+    visit "/bars/#{@pioneer.id}/drinks"
+    click_link "Alphabetize"
 
+    expect(current_url).to include("?ordered=alphabetical")
+
+  end
+
+  it "Alphabetizes drinks when the alphabetize button is clicked" do
+    visit "/bars/#{@pioneer.id}/drinks"
+    click_link "Alphabetize"
+
+    expect(@ale.name).to appear_before(@water.name)
+
+  end
 
 end
