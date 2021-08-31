@@ -1,6 +1,6 @@
 <h1><%= @restaurant.name %>
 
-<% @restaurant.menu_items.each do |item| %>
+<% @menu_items.each do |item| %>
   <h3><%=item.name%></h3><%= button_to "Edit #{item.name} Info", "/menu_items/#{item.id}/edit", method: :get %>
   <ul>
     <li><%="Calories: #{item.calories}"%></li>
@@ -8,4 +8,5 @@
   </ul>
 <%end%>
 
-<%= link_to 'Add Menu Item', "/restaurants/#{@restaurant.id}/menu_items/new"%>
+<%= link_to 'Add Menu Item', "/restaurants/#{@restaurant.id}/menu_items/new"%><br>
+<%= link_to 'Alphabetize', "/restaurants/#{@restaurant.id}/menu_items?ordered=alphabetical"%>
