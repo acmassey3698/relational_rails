@@ -3,7 +3,7 @@
 
 <% @menu_items.each do |item| %>
   <p>
-    <h3><a href="/menu_items/<%= item.id %>"><%= item.name %></a></h3>
+    <h3><%= link_to "#{item.name}", "/menu_items/#{item.id}" %></h3><%= button_to "Edit #{item.name} Info", "/menu_items/#{item.id}/edit", method: :get %>
     <ul>
     <li><%="Vegetarian?: #{item.vegetarian}"%></li>
     <li><%="Calories: #{item.calories}"%></li>
