@@ -37,7 +37,7 @@ RSpec.describe 'update bar' do
     click_button 'Update Bar'
 
     expect(current_path).to eq("/bars/#{bar.id}")
-
+    
     expect(page).to have_content("Ted")
   end
 end

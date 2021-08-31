@@ -1,4 +1,15 @@
-<%= form_with url: "/bars/#{@bar.id}", method: :patch, local: true do |form|%>
-  <%form.label :name %>
-  <% form.text_field :name %>
+<%= form_with url:"/bars/#{@bar.id}", method: :patch, local: true do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: @bar.name%><br>
+
+  <%= f.label :tabs%>
+  <%= f.number_field :tabs, value: @bar.tabs, min:0 %><br>
+
+  <%= f.label :has_food, 'Has food?:' %><br>
+  <%= f.label :true %>
+  <%= f.radio_button :has_food, "true" %><br>
+  <%= f.label :false %>
+  <%= f.radio_button :has_food, "false" %><br>
+
+  <%= f.submit 'Update Bar' %>
 <% end %>
