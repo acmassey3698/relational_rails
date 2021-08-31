@@ -74,4 +74,32 @@ RSpec.describe 'Restaurant menu items index' do
 
     expect(current_path).to eq("/menu_items/#{item.id}/edit")
   end
+
+  it 'Has a link to alphabetize the menu items' do
+    restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
+
+    item_1 = MenuItem.create!(name: "Zebra Cakes", vegetarian: true, calories: 100, restaurant_id: restaurant.id)
+    item_2 = MenuItem.create!(name: "Big Mac", vegetarian: false, calories: 1000, restaurant_id: restaurant.id)
+    item_3 = MenuItem.create!(name: "Chicken Sandwich", vegetarian: false, calories: 400, restaurant_id: restaurant.id)
+
+    visit "/restaurants/#{restaurant.id}/menu_items"
+
+    click_link("Alphabetize")
+
+    expect(current_url).to include("?ordered=alphabetical")
+  end
+
+  it 'alphabetizes menu items when the alphabetize link is clicked' do
+    restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
+
+    item_1 = MenuItem.create!(name: "Zebra Cakes", vegetarian: true, calories: 100, restaurant_id: restaurant.id)
+    item_2 = MenuItem.create!(name: "Big Mac", vegetarian: false, calories: 1000, restaurant_id: restaurant.id)
+    item_3 = MenuItem.create!(name: "Chicken Sandwich", vegetarian: false, calories: 400, restaurant_id: restaurant.id)
+
+    visit "/restaurants/#{restaurant.id}/menu_items"
+
+    click_link("Alphabetize")
+
+    expect(expect(item_2.name).to appear_before(item_1.name))
+  end
 end
