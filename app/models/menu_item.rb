@@ -4,4 +4,8 @@ class MenuItem < ApplicationRecord
   def self.get_vegetarian_menu_items
     where(vegetarian: true)
   end
+
+  def self.order_alphabetically
+    order(:name)
+  end 
 end
