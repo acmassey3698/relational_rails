@@ -1,6 +1,6 @@
 class MenuItemsController < ApplicationController
   def index
-    @menu_items = MenuItem.all
+    @menu_items = MenuItem.get_vegetarian_menu_items
   end
 
   def show
