@@ -44,4 +44,18 @@ RSpec.describe 'Bars Index' do
 
     expect(current_path).to eq("/bars/#{bar.id}")
   end
+
+  it "has a link to each bar's edit page" do
+    bar = Bar.create!(name: 'daves', has_food: false, tabs: 4, created_at: "2020-01-01")
+    bar_2 = Bar.create!(name: 'teds', has_food: false, tabs: 5, created_at: "2020-01-02")
+
+    visit "/bars"
+
+    expect(page).to have_button("Edit #{bar.name}")
+    expect(page).to have_button("Edit #{bar_2.name}")
+
+    click_button "Edit #{bar.name}"
+
+    expect(current_path).to eq("/bars/#{bar.id}/edit")
+  end
 end
