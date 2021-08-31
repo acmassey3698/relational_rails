@@ -1,0 +1,15 @@
+<%= form_with url:"/restaurants/#{@restaurant.id}", method: :patch, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: @restaurant.name%><br>
+
+  <%= f.label :yelp_rating%>
+  <%= f.number_field :yelp_rating, value: @restaurant.yelp_rating %><br>
+
+  <%= f.label :delivery, 'Restaurant delivers?:' %><br>
+  <%= f.label :true %>
+  <%= f.radio_button :delivery, "true" %><br>
+  <%= f.label :false %>
+  <%= f.radio_button :delivery, "false" %><br>
+
+  <%= f.submit 'Update Restaurant' %>
+<% end %>

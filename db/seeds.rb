@@ -11,8 +11,6 @@ Bar.destroy_all
 MenuItem.destroy_all
 Restaurant.destroy_all
 
-
-
 @pioneer = Bar.create!(name: 'Pioneer', has_food: true, tabs: 2)
 @crimson_and_gold = Bar.create!(name: 'Crimson and Gold', has_food: true, tabs: 1)
 @daves = Bar.create!(name: 'Daves', has_food: false, tabs: 10)
