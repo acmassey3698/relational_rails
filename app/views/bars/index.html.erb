@@ -2,12 +2,9 @@
 <ul>
 <% @bars.each_with_index do |bar, index| %>
   <div id="bar-<%=index%>">
-    <li><h4><%= link_to "#{bar.name}", "/bars/#{bar.id}" %> Created At: <%= bar.created_at %></h4></li>
+    <li><h4><%= link_to "#{bar.name}", "/bars/#{bar.id}" %> Created At: <%= bar.created_at %></h4></li><%= button_to "Edit #{bar.name}", "/bars/#{bar.id}/edit", method: :get %> 
   </div>
 <% end %>
 </ul>
 
 <%= link_to 'Create New Bar', "/bars/new"%>
-
-
-  
