@@ -1,12 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe 'Bar Show Page' do
-  it "displays the bar name" do
+  it "displays the bar name and attributes" do
     bar = Bar.create!(name: 'bar', has_food: false, tabs: 4)
-    bar_2 = Bar.create!(name: 'bar_2', has_food: false, tabs: 5)
+    bar_2 = Bar.create!(name: 'bar_2', has_food: true, tabs: 5)
 
     visit "/bars/#{bar.id}"
 
+    expect(page).to have_content(bar.has_food)
+    expect(page).to_not have_content(bar_2.has_food)
+    expect(page).to have_content(bar.tabs)
+    expect(page).to_not have_content(bar_2.tabs)
     expect(page).to have_content(bar.name)
     expect(page).to_not have_content(bar_2.name)
   end
@@ -50,5 +54,26 @@ RSpec.describe 'Bar Show Page' do
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
 
+  end
+
+  # User Story 12, Parent Update (x2)
+  #
+  # As a visitor
+  # When I visit a parent show page
+  # Then I see a link to update the parent "Update Parent"
+  # When I click the link "Update Parent"
+  # Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
+  # When I fill out the form with updated information
+  # And I click the button to submit the form
+  # Then a `PATCH` request is sent to '/parents/:id',
+  # the parent's info is updated,
+  # and I am redirected to the Parent's Show page where I see the parent's updated info
+
+  it 'links to the bar id edit page' do
+    bar = Bar.create!(name: 'bar', has_food: false, tabs: 4)
+
+    visit "/bars/#{bar.id}"
+
+    expect(page).to have_link("Update Bar")
   end
 end
