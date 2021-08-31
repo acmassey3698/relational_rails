@@ -56,10 +56,22 @@ RSpec.describe 'Restaurant menu items index' do
     item_2 = MenuItem.create!(name: "Chicken Sandwich", vegetarian: false, calories: 400, restaurant_id: restaurant.id)
 
     visit "/restaurants/#{restaurant.id}/menu_items"
-    
+
     expect(page).to have_link("Restaurants Index")
     expect(page).to have_link("Bars Index")
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
+  end
+
+  it "Has a button beside menu items to access the items edit page" do
+    restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
+
+    item = MenuItem.create!(name: "McFlurry", vegetarian:true, calories: 340, restaurant_id: restaurant.id)
+
+    visit "/restaurants/#{restaurant.id}/menu_items"
+
+    click_button("Edit #{item.name} Info")
+
+    expect(current_path).to eq("/menu_items/#{item.id}/edit")
   end
 end
