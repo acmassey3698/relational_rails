@@ -25,10 +25,15 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
   end
-  # 
-  # def restaurant_menu_items
-  #   @restaurant = Restaurant.find(params[:id])
-  # end
+
+  def destroy
+    restaurant = Restaurant.find(params[:id])
+    restaurant.menu_items.destroy_all
+    restaurant.destroy
+
+    redirect_to "/restaurants"
+  end
+
 
 private
   def restaurant_params
