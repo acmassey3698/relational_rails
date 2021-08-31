@@ -1,7 +1,7 @@
 <h1><%= @restaurant.name %>
 
 <% @restaurant.menu_items.each do |item| %>
-  <h3><%=item.name%></h3>
+  <h3><%=item.name%></h3><%= button_to "Edit #{item.name} Info", "/menu_items/#{item.id}/edit", method: :get %>
   <ul>
     <li><%="Calories: #{item.calories}"%></li>
     <li><%="Vegetarian?: #{item.vegetarian}"%></li>

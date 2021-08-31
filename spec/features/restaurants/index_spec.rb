@@ -33,4 +33,15 @@ RSpec.describe 'restaurants index' do
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
   end
+
+  it 'has a button that takes you to a restaurants edit page' do
+    restaurant_1 = Restaurant.create!(name: 'McDonalds', delivery: false, yelp_rating: 4,)
+    restaurant_2 = Restaurant.create!(name: 'Taco Bell', delivery: false, yelp_rating: 4,)
+
+    visit "/restaurants"
+
+    click_button "Edit #{restaurant_2.name} Info"
+
+    expect(current_path).to eq("/restaurants/#{restaurant_2.id}/edit")
+  end
 end
