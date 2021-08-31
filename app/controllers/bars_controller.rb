@@ -21,7 +21,6 @@ class BarsController < ApplicationController
   end
 
   def edit
-    require "pry"; binding.pry
     @bar = Bar.find(params[:id])
   end
 end
