@@ -1,0 +1,15 @@
+<%= form_with url:"/drinks/#{@drink.id}", method: :patch, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: @drink.name %><br>
+
+  <%= f.label :drink_rating %>
+  <%= f.number_field :drink_rating, value: @drink.drink_rating, in: 0..5 %><br>
+
+  <%= f.label :contains_alcohol, 'Contains alcohol?:' %><br>
+  <%= f.label :true %>
+  <%= f.radio_button :contains_alcohol, "true" %><br>
+  <%= f.label :false %>
+  <%= f.radio_button :contains_alcohol, "false" %><br>
+
+  <%= f.submit 'Update Drink' %>
+<% end %>
