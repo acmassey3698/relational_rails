@@ -1,0 +1,17 @@
+
+<%= form_with url: "/restaurants/#{@restaurant.id}/menu_items", method: :post, local: true do |form| %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+
+  <%= form.label :calories%>
+  <%= form.number_field :calories, min: 0 %><br>
+
+  <%= form.label :vegetarian, 'Vegetarian?:' %><br>
+  <%= form.label :true %>
+  <%= form.radio_button :vegetarian, "true" %><br>
+  <%= form.label :false %>
+  <%= form.radio_button :vegetarian, "false" %><br>
+
+  <%= form.submit 'Create Menu Item'%>
+  <% end %>

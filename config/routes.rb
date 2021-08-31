@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get "/restaurants/new", to: 'restaurants#new'
   get '/restaurants/:id', to: 'restaurants#show'
   get '/restaurants/:id/edit', to: 'restaurants#edit'
+  get '/restaurants/:id/menu_items', to: 'restaurant_menu_items#index'
+  get '/restaurants/:id/menu_items/new', to: 'restaurant_menu_items#new'
+  post '/restaurants/:id/menu_items', to: 'restaurant_menu_items#create'
   patch '/restaurants/:id', to: 'restaurants#update'
   post '/restaurants', to: 'restaurants#create'
   get '/menu_items', to: 'menu_items#index'
@@ -14,7 +17,8 @@ Rails.application.routes.draw do
   get '/drinks/:id', to: 'drinks#show'
 
   get '/bars', to: 'bars#index'
-  get '/restaurants/:id/menu_items', to: 'restaurants#restaurant_menu_items'
+
+
   get "/bars/new", to: 'bars#new'
   get '/bars/:id', to: 'bars#show'
   post '/bars', to: 'bars#create'

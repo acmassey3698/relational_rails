@@ -73,8 +73,6 @@ RSpec.describe 'Restaurant edit' do
     choose(option: 'true')
     click_button 'Update Restaurant'
 
-    save_and_open_page
-
     expect(current_path).to eq("/restaurants/#{restaurant.id}")
     expect(page).to have_content("Yelp Rating: 4")
   end

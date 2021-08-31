@@ -7,3 +7,5 @@
     <li><%="Vegetarian?: #{item.vegetarian}"%></li>
   </ul>
 <%end%>
+
+<%= link_to 'Add Menu Item', "/restaurants/#{@restaurant.id}/menu_items/new"%>
