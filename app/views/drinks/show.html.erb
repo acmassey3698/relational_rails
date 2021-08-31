@@ -2,3 +2,5 @@
 <p>Bar: <%= @drink.bar.name %></p>
 <p>Contains Alcohol: <%= @drink.contains_alcohol%></p>
 <p>Drink Rating: <%= @drink.drink_rating%></p>
+
+<%= link_to "Edit Drink", "/drinks/#{@drink.id}/edit" %>
