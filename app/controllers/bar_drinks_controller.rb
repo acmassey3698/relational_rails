@@ -2,6 +2,9 @@ class BarDrinksController < ApplicationController
   def index
     @bar = Bar.find(params[:id])
     @drinks = @bar.drinks
+    if params[:ordered] == "alphabetical"
+      @drinks = @drinks.order_alphabetically
+    end
   end
 
   def new
