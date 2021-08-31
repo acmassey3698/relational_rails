@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   patch '/bars/:id', to: 'bars#update'
 
   #Drinks by Bar
-  get '/bars/:bar_id/drinks', to: 'bar_drinks#index'
+  get '/bars/:id/drinks', to: 'bar_drinks#index'
+  get '/bars/:id/drinks/new', to: 'bar_drinks#new'
+  post '/bars/:id/drinks', to: 'bar_drinks#create'
 
   #Drinks
   get '/drinks', to: 'drinks#index'

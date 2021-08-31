@@ -3,4 +3,5 @@
   <p>Contains Alcohol: <%= drink.contains_alcohol %></p>
   <p>Drink Rating: <%= drink.drink_rating %></p>
 <% end %>
-<!-- <p>Average Drink Rating for <%= @bar.name %>: </p> -->
+
+<%= link_to "Add Drink", "/bars/#{@bar.id}/drinks/new" %>
