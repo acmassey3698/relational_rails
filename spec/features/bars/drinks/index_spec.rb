@@ -37,4 +37,6 @@ RSpec.describe 'Bars drinks index' do
     expect(page).to have_link("Drinks Index")
   end
 
+
+
 end

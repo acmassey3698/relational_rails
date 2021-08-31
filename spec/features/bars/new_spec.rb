@@ -11,6 +11,9 @@ RSpec.describe 'New Bar' do
         expect(current_path).to eq('/bars/new')
 
         fill_in 'Name', with: 'Ted'
+        fill_in 'Tabs', with: 4
+
+        choose(option: false)
         click_button 'Create Bar'
 
         new_bar_id = Bar.last.id
