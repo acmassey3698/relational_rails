@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #Restaurants
+
   get '/restaurants', to: 'restaurants#index'
   get "/restaurants/new", to: 'restaurants#new'
   get '/restaurants/:id', to: 'restaurants#show'
@@ -25,6 +28,7 @@ Rails.application.routes.draw do
   get '/bars/:id', to: 'bars#show'
   post '/bars', to: 'bars#create'
   get '/bars/:bar_id/drinks', to: 'bar_drinks#index'
+  get '/bars/:bar_id/edit', to: 'bars#edit'
 
 
 

@@ -19,4 +19,9 @@ class BarsController < ApplicationController
   def bar_params
     params.permit(:name, :tabs, :has_food)
   end
+
+  def edit
+    require "pry"; binding.pry
+    @bar = Bar.find(params[:id])
+  end
 end
