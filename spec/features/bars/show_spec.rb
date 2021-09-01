@@ -29,7 +29,6 @@ RSpec.describe 'Bar Show Page' do
     expect(page).to have_no_content("Drink Count: #{bar_2.drink_count}")
   end
 
-
   it 'displays a link that takes you to the drink table page' do
     bar = Bar.create!(name: 'bar', has_food: false, tabs: 4)
     bar_2 = Bar.create!(name: 'bar_2', has_food: false, tabs: 5)
@@ -53,7 +52,6 @@ RSpec.describe 'Bar Show Page' do
     expect(page).to have_link("Bars Index")
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
-
   end
 
   it "can delete the bar from the show page" do
@@ -65,5 +63,4 @@ RSpec.describe 'Bar Show Page' do
     expect(current_path).to eq("/bars")
     expect(page).to_not have_content(bar.name)
   end
-
 end

@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'update bar' do
-
-
   it 'links to the bar edit page' do
     bar = Bar.create!(name: 'bar')
 
