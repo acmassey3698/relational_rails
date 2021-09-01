@@ -1,7 +1,6 @@
 <h1><%= @bar.name%></h1><%= button_to "Update #{@bar.name}", "/bars/#{@bar.id}/edit", method: :get %><br>
 <h6><%= link_to "Drink Menu", "/bars/#{@bar.id}/drinks" %></h6>
 
-
 <ul>
   <li><%= "Tabs: #{@bar.tabs}" %></li>
   <li><%= "Has food?: #{@bar.has_food}" %></li>
