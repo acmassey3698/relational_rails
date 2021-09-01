@@ -2,10 +2,11 @@ class RestaurantMenuItemsController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:id])
     @menu_items = @restaurant.menu_items
-  # require "pry"; binding.pry
+    
     if params[:ordered] == "alphabetical"
       @menu_items = @menu_items.order_alphabetically
-
+    elsif params[:search]
+      @menu_items = @menu_items.menu_items_by_calories(params[:search])
     end
 
   end

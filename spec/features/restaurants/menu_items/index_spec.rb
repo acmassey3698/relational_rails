@@ -130,4 +130,24 @@ RSpec.describe 'Restaurant menu items index' do
     expect(current_path).to eq("/menu_items")
     expect(page).to_not have_content(item_3.name)
   end
+
+  it 'filters menu items based upon a threshold given by the user' do
+    restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
+
+    item_1 = MenuItem.create!(name: "Big Mac", vegetarian: false, calories: 1000, restaurant_id: restaurant.id)
+    item_2 = MenuItem.create!(name: "Vegan Chicken Sandwich", vegetarian: true, calories: 400, restaurant_id: restaurant.id)
+    item_3 = MenuItem.create!(name: "McFlurry", vegetarian:true, calories: 340, restaurant_id: restaurant.id)
+
+    visit ("/restaurants/#{restaurant.id}/menu_items")
+
+    fill_in :search, with: 399
+
+    click_button "Filter menu items by calories"
+
+    expect(current_path).to eq("/restaurants/#{restaurant.id}/menu_items")
+    # expect(current_url).to include("?search=399")
+    expect(page).to have_content(item_1.name)
+    expect(page).to have_content(item_2.name)
+    expect(page).to_not have_content(item_3.name)
+  end
 end
