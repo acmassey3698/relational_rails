@@ -5,3 +5,5 @@
   <li><%= "Vegetarian?: #{@menu_item.vegetarian}" %></li>
   <li><%= "Calories: #{@menu_item.calories}" %></li>
 </ul>
+
+<%= link_to "Delete Menu Item", "/menu_items/#{@menu_item.id}", method: :delete %>
