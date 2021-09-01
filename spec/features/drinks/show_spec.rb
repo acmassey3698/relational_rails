@@ -28,4 +28,15 @@ RSpec.describe 'the drinks show page' do
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
   end
+
+  it "can delete the drink from the show page" do
+    bar = Bar.create!(name: 'davids', has_food: false, tabs: 4)
+    drink = bar.drinks.create!(name: "Rum and Coke", contains_alcohol: true, drink_rating: 5 )
+
+    visit "/drinks/#{drink.id}"
+    click_button 'Delete'
+
+    expect(current_path).to eq("/drinks")
+    expect(page).to_not have_content(drink.name)
+  end
 end

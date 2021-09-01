@@ -4,3 +4,4 @@
 <p>Drink Rating: <%= @drink.drink_rating%></p>
 
 <%= link_to "Edit Drink", "/drinks/#{@drink.id}/edit" %>
+<%= button_to 'Delete', "/drinks/#{@drink.id}", method: :delete %>
