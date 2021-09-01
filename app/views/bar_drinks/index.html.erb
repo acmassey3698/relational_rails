@@ -1,10 +1,10 @@
 <% @drinks.each do |drink| %>
-  <p><%= link_to drink.name, "/drinks/#{drink.id}" %></p>
+  <h4><%= link_to drink.name, "/drinks/#{drink.id}" %></h4>
   <p>Contains Alcohol: <%= drink.contains_alcohol %></p>
   <p>Drink Rating: <%= drink.drink_rating %></p>
 <% end %>
 
-<%= link_to "Add Drink", "/bars/#{@bar.id}/drinks/new" %>
+<%= link_to "Add Drink", "/bars/#{@bar.id}/drinks/new" %><br>
 <%= link_to "Alphabetize", "/bars/#{@bar.id}/drinks?ordered=alphabetical" %>
 
 <%= form_with url: "/bars/#{@bar.id}/drinks?search", method: :get, local: true do |f| %>

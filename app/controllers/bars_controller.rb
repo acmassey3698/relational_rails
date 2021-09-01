@@ -33,6 +33,7 @@ class BarsController < ApplicationController
     bar.destroy
     redirect_to "/bars"
   end
+  
 private
   def bar_params
     params.permit(:name, :tabs, :has_food)

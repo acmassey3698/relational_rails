@@ -4,7 +4,6 @@ class RestaurantsController < ApplicationController
 
   def create
     restaurant = Restaurant.create(restaurant_params)
-
     redirect_to "/restaurants"
   end
 
@@ -30,7 +29,6 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.find(params[:id])
     restaurant.menu_items.destroy_all
     restaurant.destroy
-
     redirect_to "/restaurants"
   end
 

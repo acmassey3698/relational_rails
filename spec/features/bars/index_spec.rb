@@ -17,7 +17,6 @@ RSpec.describe 'Bars Index' do
     end
   end
 
-
   it "has the nav links at the top of the page" do
     visit "/bars"
 
@@ -72,6 +71,5 @@ RSpec.describe 'Bars Index' do
 
     expect(current_path).to eq("/bars")
     expect(page).to_not have_content(bar.name)
-
   end
 end

@@ -145,7 +145,6 @@ RSpec.describe 'Restaurant menu items index' do
     click_button "Filter menu items by calories"
 
     expect(current_path).to eq("/restaurants/#{restaurant.id}/menu_items")
-    # expect(current_url).to include("?search=399")
     expect(page).to have_content(item_1.name)
     expect(page).to have_content(item_2.name)
     expect(page).to_not have_content(item_3.name)

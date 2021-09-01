@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe MenuItem do
-  it {should belong_to :restaurant}
+  
+  describe 'relationships' do
+    it {should belong_to :restaurant}
+  end
 
   it 'gets vegetarian menu items' do
     restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
@@ -31,5 +34,5 @@ RSpec.describe MenuItem do
     item_3 = MenuItem.create!(name: "Chicken Sandwich", vegetarian: false, calories: 400, restaurant_id: restaurant.id)
 
     expect(MenuItem.menu_items_by_calories(200)).to eq([item_2, item_3])
-  end 
+  end
 end

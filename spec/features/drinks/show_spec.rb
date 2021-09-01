@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'the drinks show page' do
-
   it 'displays the name of the bar and attributes' do
     bar = Bar.create(name: 'pioneer')
     drink = bar.drinks.create!(name: "Rum and Coke", contains_alcohol: true, drink_rating: 5 )

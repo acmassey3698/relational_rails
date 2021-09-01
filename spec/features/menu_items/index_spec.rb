@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'menu items index' do
-
   it 'displays only menu items that are vegetarian' do
     restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
 
@@ -10,7 +9,6 @@ RSpec.describe 'menu items index' do
     item_3 = MenuItem.create!(name: "McFlurry", vegetarian:true, calories: 340, restaurant_id: restaurant.id)
 
     visit "/menu_items"
-
 
     expect(page).to_not have_content(item_1.name)
     expect(page).to_not have_content(item_2.name)
