@@ -11,3 +11,10 @@
 
 <%= link_to 'Add Menu Item', "/restaurants/#{@restaurant.id}/menu_items/new"%><br>
 <%= link_to 'Alphabetize', "/restaurants/#{@restaurant.id}/menu_items?ordered=alphabetical"%>
+
+
+<%= form_with url: "/restaurants/#{@restaurant.id}/menu_items?search", method: :get, local: true do |f| %>
+  <%= f.label :search %>
+  <%= f.number_field :search %>
+  <%= f.submit "Filter menu items by calories" %>
+<% end %>
