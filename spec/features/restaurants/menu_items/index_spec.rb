@@ -100,6 +100,6 @@ RSpec.describe 'Restaurant menu items index' do
 
     click_link("Alphabetize")
 
-    expect(expect(item_2.name).to appear_before(item_1.name))
+    expect(item_2.name).to appear_before(item_1.name)
   end
 end

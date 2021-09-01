@@ -7,3 +7,5 @@
   <li><%= "Yelp Rating: #{@restaurant.yelp_rating}" %></li>
   <li><%= "Delivery?: #{@restaurant.delivery}" %></li>
 </ul>
+
+<%= link_to "Delete Restaurant", "/restaurants/#{@restaurant.id}", method: :delete %>
