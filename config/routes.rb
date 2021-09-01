@@ -40,4 +40,5 @@ Rails.application.routes.draw do
   get '/drinks/:id', to: 'drinks#show'
   get '/drinks/:id/edit', to: 'drinks#edit'
   patch '/drinks/:id', to: 'drinks#update'
+  delete '/drinks/:id', to: 'drinks#destroy'
 end
