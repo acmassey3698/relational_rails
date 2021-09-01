@@ -8,4 +8,8 @@ class Drink < ApplicationRecord
   def self.order_alphabetically
     order(:name)
   end
+
+  def self.drinks_by_rating(rating)
+    where("drink_rating > #{rating}")
+  end
 end
