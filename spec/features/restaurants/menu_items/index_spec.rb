@@ -102,4 +102,32 @@ RSpec.describe 'Restaurant menu items index' do
 
     expect(item_2.name).to appear_before(item_1.name)
   end
+
+  it "has a link to delete each menu item on the restaurant menu item index page" do
+    restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
+
+    item_1 = MenuItem.create!(name: "Big Mac", vegetarian: false, calories: 1000, restaurant_id: restaurant.id)
+    item_2 = MenuItem.create!(name: "Vegan Chicken Sandwich", vegetarian: true, calories: 400, restaurant_id: restaurant.id)
+    item_3 = MenuItem.create!(name: "McFlurry", vegetarian:true, calories: 340, restaurant_id: restaurant.id)
+
+    visit ("/restaurants/#{restaurant.id}/menu_items")
+
+    expect(page).to have_button("Delete McFlurry")
+    expect(page).to have_button("Delete Vegan Chicken Sandwich")
+  end
+
+  it "deletes the menu item when you click its delete button" do
+    restaurant = Restaurant.create!(name: "Mcdonalds", delivery: false, yelp_rating: 5)
+
+    item_1 = MenuItem.create!(name: "Big Mac", vegetarian: false, calories: 1000, restaurant_id: restaurant.id)
+    item_2 = MenuItem.create!(name: "Vegan Chicken Sandwich", vegetarian: true, calories: 400, restaurant_id: restaurant.id)
+    item_3 = MenuItem.create!(name: "McFlurry", vegetarian:true, calories: 340, restaurant_id: restaurant.id)
+
+    visit ("/restaurants/#{restaurant.id}/menu_items")
+
+    click_button("Delete #{item_3.name}")
+
+    expect(current_path).to eq("/menu_items")
+    expect(page).to_not have_content(item_3.name)
+  end
 end
