@@ -7,3 +7,5 @@
   <li><%= "Has food?: #{@bar.has_food}" %></li>
   <li><%= "Drink Count: #{@bar.drink_count}"%></li>
 </ul>
+
+<%= button_to 'Delete', "/bars/#{@bar.id}", method: :delete %>
