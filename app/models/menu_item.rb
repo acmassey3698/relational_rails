@@ -7,5 +7,9 @@ class MenuItem < ApplicationRecord
 
   def self.order_alphabetically
     order(:name)
-  end 
+  end
+
+  def self.menu_items_by_calories(search_value)
+    where("calories > #{search_value}")
+  end
 end
