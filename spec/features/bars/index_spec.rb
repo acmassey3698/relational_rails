@@ -58,4 +58,20 @@ RSpec.describe 'Bars Index' do
 
     expect(current_path).to eq("/bars/#{bar.id}/edit")
   end
+
+  it "has a button to next to each bar in the index that allows the user to delete the bar" do
+    bar = Bar.create!(name: 'daves', has_food: false, tabs: 4, created_at: "2020-01-01")
+    bar_2 = Bar.create!(name: 'teds', has_food: false, tabs: 5, created_at: "2020-01-02")
+
+    visit "/bars"
+
+    expect(page).to have_button("Delete #{bar.name}")
+    expect(page).to have_button("Delete #{bar_2.name}")
+
+    click_button "Delete #{bar.name}"
+
+    expect(current_path).to eq("/bars")
+    expect(page).to_not have_content(bar.name)
+
+  end
 end
