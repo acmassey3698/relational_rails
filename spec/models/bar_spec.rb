@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Bar do
-  it {should have_many :drinks}
+  describe 'relationships' do
+    it {should have_many :drinks}
+  end
 
   describe 'instance methods' do
     describe '#drink_count' do
