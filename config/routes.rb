@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   #Menu Items
   get '/menu_items', to: 'menu_items#index'
   get '/menu_items/:id', to: 'menu_items#show'
+  delete 'menu_items/:id', to: 'menu_items#destroy'
 
   #Bar
   get '/bars', to: 'bars#index'
