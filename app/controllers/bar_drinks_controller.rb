@@ -5,7 +5,7 @@ class BarDrinksController < ApplicationController
     if params[:ordered] == "alphabetical"
       @drinks = @drinks.order_alphabetically
     elsif params[:search]
-      @drinks = @bar.drinks.drinks_by_rating(params[:search])
+      @drinks = @drinks.drinks_by_rating(params[:search])
     end
   end
 
