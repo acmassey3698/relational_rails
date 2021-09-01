@@ -23,5 +23,15 @@ RSpec.describe Drink, name: :model do
 
       expect(Drink.order_alphabetically).to eq([ale, rum, water])
     end
+
+    it "#drinks_by_rating" do
+      pioneer = Bar.create!(name: 'Pioneer')
+      rum = pioneer.drinks.create!(name: 'Rum and Coke', contains_alcohol: true, drink_rating: 5)
+      water = pioneer.drinks.create!(name: 'Water', contains_alcohol: false, drink_rating: 4)
+      ale = pioneer.drinks.create!(name: 'Ale', contains_alcohol: false, drink_rating: 4)
+      rating = 4
+
+      expect(Drink.drinks_by_rating(rating)).to eq([rum])
+    end
   end
 end

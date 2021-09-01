@@ -37,15 +37,6 @@ RSpec.describe 'Bars drinks index' do
     expect(page).to have_link("Menu Items Index")
     expect(page).to have_link("Drinks Index")
   end
-  # [ ] done
-  #
-  # User Story 16, Sort Parent's Children in Alphabetical Order by name (x2)
-  #
-  # As a visitor
-  # When I visit the Parent's children Index Page
-  # Then I see a link to sort children in alphabetical order
-  # When I click on the link
-  # I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 
   it "has a link to alphabetize the bar drinks" do
     visit "/bars/#{@pioneer.id}/drinks"
@@ -63,4 +54,27 @@ RSpec.describe 'Bars drinks index' do
 
   end
 
+#   [ ] done
+#
+# User Story 21, Display Records Over a Given Threshold (x2)
+#
+# As a visitor
+# When I visit the Parent's children Index Page
+# I see a form that allows me to input a number value
+# When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+# Then I am brought back to the current index page with only the records that meet that threshold shown.
+  it 'Filters drinks that are greater than the threshold' do
+    visit "/bars/#{@pioneer.id}/drinks"
+
+    expect(page).to have_field(:search)
+
+    fill_in :search, with: 4
+
+    click_button "Filter drink by rating"
+
+
+    expect(current_path).to eq("/bars/#{@pioneer.id}/drinks")
+    expect(page).to have_content(@rum.name)
+    expect(page).not_to have_content(@water.name)
+  end
 end
