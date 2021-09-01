@@ -56,4 +56,14 @@ RSpec.describe 'Bar Show Page' do
 
   end
 
+  it "can delete the bar from the show page" do
+    bar = Bar.create!(name: 'davids', has_food: false, tabs: 4)
+
+    visit "/bars/#{bar.id}"
+    click_button 'Delete'
+
+    expect(current_path).to eq("/bars")
+    expect(page).to_not have_content(bar.name)
+  end
+
 end
